@@ -1,1 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Rose in Concrete — credible messenger mentorship for justice-impacted individuals and vulnerable youth. Breaking Chains. Building Futures. Long live the rose that grew from concrete." />
+<title>Rose in Concrete | Breaking Chains. Building Futures.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet" />
+<style>
+:root,:root[data-theme="dark"]{
+  --bg:#0a0a0b; --bg-2:#101012; --panel:#151518; --panel-2:#1b1b20;
+  --white:#f6f6f7; --muted:#a4a4ad; --muted-2:#6f6f78;
+  --red:#e11d2a; --red-2:#ff3646; --red-soft:rgba(225,29,42,.13);
+  --green:#2fa25a; --green-2:#46c877; --green-soft:rgba(47,162,90,.14);
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.06);
+  --wash:rgba(255,255,255,.04); --wash-2:rgba(255,255,255,.06);
+  --nav:rgba(10,10,11,.72); --outline:rgba(255,255,255,.85);
+  --band:#141114; --band-ink:#f6f6f7;
+  --shadow:0 40px 90px -40px rgba(0,0,0,.85);
+  --grad-hero:radial-gradient(1000px 620px at 74% 12%,rgba(225,29,42,.30),transparent 60%),radial-gradient(760px 520px at 8% 92%,rgba(47,162,90,.16),transparent 62%),linear-gradient(180deg,#0a0a0b,#0d0d10 55%,#0a0a0b);
+  --radius:16px; --maxw:1240px; --ease:cubic-bezier(.2,.8,.25,1);
+}
+:root[data-theme="light"]{
+  --bg:#f4f1ea; --bg-2:#efeae1; --panel:#ffffff; --panel-2:#f6f3ec;
+  --white:#16130f; --muted:#5c554c; --muted-2:#8b8377;
+  --red:#cf1a2b; --red-2:#b3121f; --red-soft:rgba(207,26,43,.10);
+  --green:#1f7d43; --green-2:#17683a; --green-soft:rgba(31,125,67,.12);
+  --line:rgba(22,19,15,.14); --line-2:rgba(22,19,15,.08);
+  --wash:rgba(22,19,15,.035); --wash-2:rgba(22,19,15,.06);
+  --nav:rgba(244,241,234,.78); --outline:rgba(22,19,15,.8);
+  --band:#17130f; --band-ink:#f7f2ea;
+  --shadow:0 40px 90px -50px rgba(22,19,15,.4);
+  --grad-hero:radial-gradient(1000px 620px at 74% 12%,rgba(207,26,43,.14),transparent 60%),radial-gradient(760px 520px at 8% 92%,rgba(31,125,67,.12),transparent 62%),linear-gradient(180deg,#f6f3ec,#efeae1 55%,#f6f3ec);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,var(--red),var(--green-2));box-shadow:0 0 12px rgba(225,29,42,.5)}
+.nav-links a.active{color:var(--white)}
+.nav-links a.active::after{transform:scaleX(1)}
+body{background:var(--bg);color:var(--white);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .5s var(--ease),color .5s var(--ease)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--red);color:#fff}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+.display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.94}
+.serif{font-family:'Fraunces',Georgia,serif}
+h1,h2,h3{line-height:1.04;letter-spacing:-.018em;font-weight:800}
+.red{color:var(--red-2)} .grn{color:var(--green-2)}
+.section{padding:clamp(72px,10vw,140px) 0;position:relative}
+.lead{font-size:clamp(1.05rem,1.4vw,1.22rem);color:var(--muted);max-width:62ch}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red-2)}
+.eyebrow::before{content:"";width:26px;height:2px;background:currentColor}
+.eyebrow.g{color:var(--green-2)}
+.sec-head{max-width:820px;margin-bottom:56px}
+.sec-head.mid{margin-inline:auto;text-align:center}
+.sec-head .eyebrow{margin-bottom:20px}
+.sec-head h2{font-size:clamp(2.1rem,5vw,3.7rem);margin-bottom:18px}
 
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;padding:15px 28px;border-radius:100px;cursor:pointer;border:1.6px solid transparent;transition:.35s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 14px 34px -14px rgba(225,29,42,.8)}
+.btn-red:hover{background:var(--red-2);transform:translateY(-3px);box-shadow:0 20px 44px -16px rgba(225,29,42,.9)}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 14px 34px -14px rgba(47,162,90,.7)}
+.btn-green:hover{background:var(--green-2);transform:translateY(-3px)}
+.btn-ghost{border-color:var(--line);color:var(--white)}
+.btn-ghost:hover{border-color:var(--white);background:var(--wash);transform:translateY(-3px)}
+.btn-white{background:var(--white);color:var(--bg)}
+.btn-white:hover{transform:translateY(-3px)}
+
+/* nav */
+header.nav{position:fixed;inset:0 0 auto;z-index:100;transition:.4s;border-bottom:1px solid transparent}
+header.nav.scrolled{background:var(--nav);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line-2)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:var(--maxw);margin:0 auto;padding:0 30px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .badge{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;flex:none;box-shadow:0 6px 18px -8px rgba(0,0,0,.6)}
+.brand .badge img{width:120%;height:120%;object-fit:contain}
+.brand .wm{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.brand .wm b{color:var(--red-2);font-weight:400}
+.nav-links{display:flex;gap:2px}
+.nav-links a{font-size:.86rem;font-weight:500;color:var(--muted);padding:9px 13px;border-radius:100px;transition:.25s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:1.5px;background:var(--green-2);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover{color:var(--white)} .nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.tgl{width:42px;height:42px;border-radius:100px;border:1.6px solid var(--line);background:transparent;color:var(--white);display:grid;place-items:center;cursor:pointer;transition:.3s}
+.tgl:hover{border-color:var(--green);color:var(--green-2)}
+.tgl svg{width:18px;height:18px}
+.tgl .moon{display:none}
+:root[data-theme="light"] .tgl .sun{display:none}
+:root[data-theme="light"] .tgl .moon{display:block}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:9px}
+.burger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mmenu{position:fixed;inset:0;z-index:99;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:2px;padding:44px;transform:translateY(-100%);transition:transform .5s var(--ease)}
+.mmenu.open{transform:none}
+.mmenu a{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.8rem;color:var(--muted);padding:7px 0;transition:.25s}
+.mmenu a:hover{color:var(--white);padding-left:10px}
+.mmenu .btn{margin-top:20px;align-self:flex-start}
+
+/* grain + hero */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero{min-height:100svh;display:flex;align-items:center;padding:150px 0 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:var(--grad-hero)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(560px 380px at 72% 26%,var(--red-soft),transparent 70%);animation:glow 9s ease-in-out infinite alternate;will-change:transform,opacity}
+@keyframes glow{0%{transform:translate(0,0) scale(1);opacity:.5}100%{transform:translate(-4%,3%) scale(1.12);opacity:.9}}
+.hero-bg .grid{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(circle at 62% 40%,#000,transparent 76%)}
+.hero-in{position:relative;z-index:3;width:100%}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:50px;align-items:center}
+.hero .kick{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 16px;margin-bottom:26px}
+.hero .kick b{color:var(--green-2);font-weight:800}
+.hero h1{font-size:clamp(3rem,8.4vw,7rem);margin-bottom:20px}
+.hero h1 .a{display:block;-webkit-text-stroke:1.6px var(--outline);color:transparent}
+.hero h1 .b{display:block}
+.hero h1 .c{display:block;color:var(--red-2)}
+.hero .tag{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.5rem);color:var(--green-2);margin:0 0 20px}
+.hero .lead{margin-bottom:32px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-solo{max-width:960px}
+.hero-solo h1{font-size:clamp(3.2rem,10vw,8rem)}
+.about-photo{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);aspect-ratio:16/7;margin-bottom:26px}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 42%;transform:scale(1.05);animation:ken 20s ease-in-out infinite alternate}
+.about-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.5))}
+.about-photo .cap{position:absolute;left:20px;bottom:16px;z-index:2;font-size:.74rem;letter-spacing:.04em;color:#fff;display:flex;align-items:center;gap:8px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.about-photo .cap .dot{width:8px;height:8px;border-radius:50%;background:var(--green-2);box-shadow:0 0 0 4px rgba(47,162,90,.25)}
+.side-photo{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);aspect-ratio:4/5}
+.side-photo img{width:100%;height:100%;object-fit:cover;object-position:center 28%;transform:scale(1.04);transition:transform 1s var(--ease)}
+.side-photo:hover img{transform:scale(1.09)}
+.side-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,10,11,.35))}
+.believe-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:52px;align-items:start}
+.believe-photo{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);aspect-ratio:3/4;position:sticky;top:104px}
+.believe-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:scale(1.04);transition:transform 1s var(--ease)}
+.believe-photo:hover img{transform:scale(1.09)}
+.believe-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(10,10,11,.4))}
+.believe-photo .cap{position:absolute;left:18px;bottom:15px;z-index:2;font-size:.72rem;letter-spacing:.04em;color:#fff;display:flex;align-items:center;gap:8px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.believe-photo .cap .dot{width:8px;height:8px;border-radius:50%;background:var(--green-2);box-shadow:0 0 0 4px rgba(47,162,90,.25)}
+@media(max-width:980px){.believe-grid{grid-template-columns:1fr}.believe-photo{position:relative;top:0;aspect-ratio:16/10;order:-1}}
+.hero-photo{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:4/5}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:ken 18s ease-in-out infinite alternate}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,11,.55))}
+.hero-photo .cap{position:absolute;left:18px;bottom:16px;z-index:2;font-size:.74rem;letter-spacing:.04em;color:#fff;display:flex;align-items:center;gap:8px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.hero-photo .cap .dot{width:8px;height:8px;border-radius:50%;background:var(--green-2);box-shadow:0 0 0 4px rgba(47,162,90,.25)}
+@keyframes ken{to{transform:scale(1.16) translate(-2%,-1%)}}
+.scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:4;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-2);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue .ln{width:1px;height:40px;background:linear-gradient(var(--green-2),transparent);animation:cue 2s infinite}
+@keyframes cue{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* ticker */
+.ticker{background:var(--band);color:var(--band-ink);overflow:hidden;padding:15px 0}
+.tk{display:flex;white-space:nowrap;width:max-content;animation:tick 30s linear infinite}
+.tk .u{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.4rem;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+.tk .u::after{content:"✿";color:var(--green);font-size:.9rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* reveal + cinematics */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}.rv[data-d="2"]{transition-delay:.2s}.rv[data-d="3"]{transition-delay:.3s}.rv[data-d="4"]{transition-delay:.4s}
+.wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease)}
+.wipe.in{clip-path:inset(0 0 0 0)}
+
+/* mission vision */
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mv .card{border:1px solid var(--line);border-radius:var(--radius);padding:42px;background:var(--panel);position:relative;overflow:hidden}
+.mv .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--red),var(--green))}
+.mv .k{font-family:'Anton',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;color:var(--green-2);margin-bottom:14px;display:block}
+.mv p{font-size:1.12rem;color:var(--white);opacity:.92}
+
+/* beliefs */
+.beliefs{border-top:1px solid var(--line)}
+.belief{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line);transition:.4s}
+.belief:hover{padding-left:12px;background:linear-gradient(90deg,var(--wash),transparent)}
+.belief .n{font-family:'Anton',sans-serif;color:var(--red-2);font-size:1rem}
+.belief:nth-child(even) .n{color:var(--green-2)}
+.belief .t{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.25rem,2.5vw,1.85rem);line-height:1.22}
+
+/* figures */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line)}
+.fig{background:var(--panel);padding:34px 20px;text-align:center}
+.fig .n{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;color:var(--red-2)}
+.fig:nth-child(3) .n,.fig:nth-child(4) .n{color:var(--green-2)}
+.fig .l{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+/* who */
+.who{display:grid;grid-template-columns:1fr 1fr;gap:10px 40px}
+.who .r{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line-2)}
+.who .r .b{width:8px;height:8px;border-radius:50%;background:var(--green);margin-top:9px;flex:none}
+
+/* journey */
+.jour{border-top:1px solid var(--line)}
+.mo{display:grid;grid-template-columns:120px 1.1fr 1fr;gap:28px;padding:38px 0;border-bottom:1px solid var(--line);align-items:start;transition:.4s var(--ease)}
+.mo:hover{background:var(--wash);padding-inline:14px}
+.mo .num{font-family:'Anton',sans-serif;font-size:clamp(2.6rem,5vw,3.8rem);line-height:.9;color:var(--red-2)}
+.mo:nth-child(even) .num{color:var(--green-2)}
+.mo .num small{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px;font-family:'Inter',sans-serif}
+.mo h3{font-size:clamp(1.25rem,2.3vw,1.75rem);margin-bottom:8px}
+.mo .goal{color:var(--muted);font-size:.96rem}
+.mo .goal b{color:var(--green-2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-content:start}
+.chips span{font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:6px 13px}
+
+/* photo band */
+.band{position:relative;min-height:74vh;display:flex;align-items:center;overflow:hidden}
+.band .bg{position:absolute;inset:-12% 0;z-index:0}
+.band .bg img{width:100%;height:100%;object-fit:cover}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,9,.92),rgba(8,8,9,.55) 60%,rgba(8,8,9,.3));z-index:1}
+.band .in{position:relative;z-index:2;max-width:680px}
+.band .in .q{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.16;color:#fff}
+.band .in .who2{margin-top:20px;color:#dcdce0;font-size:1.02rem}
+
+/* split messengers */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+.chk .c{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-2);align-items:center}
+.chk .c:last-child{border-bottom:0}
+.chk .c svg{width:20px;height:20px;color:var(--green-2)}
+.chk .c span{font-weight:500}
+
+/* leadership */
+.leaders{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.leader{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:transform .5s var(--ease),box-shadow .5s;transform-style:preserve-3d}
+.leader:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.leader .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+.leader .ph img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 1s var(--ease);filter:saturate(1.02)}
+.leader:hover .ph img{transform:scale(1.05)}
+.leader .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,8,9,.82))}
+.leader .meta{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px}
+.leader .role{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-2);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.leader .role::before{content:"";width:20px;height:2px;background:var(--green)}
+.leader .name{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.9rem;color:#fff;line-height:1}
+.leader .sub{color:#cfcfd6;font-size:.9rem;margin-top:8px}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:14px}
+.gal figure{position:relative;overflow:hidden;border-radius:12px;border:1px solid var(--line)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gal figure:hover img{transform:scale(1.08)}
+.gal .big{grid-column:span 4;grid-row:span 2}
+.gal .tall{grid-column:span 2;grid-row:span 2}
+.gal .wide{grid-column:span 3}
+.gal .std{grid-column:span 3}
+.gal figcaption{position:absolute;left:12px;bottom:10px;font-size:.7rem;letter-spacing:.06em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.7);z-index:2}
+.gal figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5))}
+
+/* paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.path{padding:clamp(26px,3.4vw,42px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;transition:.4s var(--ease);background:var(--panel)}
+.paths .path:nth-child(2n){border-right:0}
+.paths .path:nth-last-child(-n+2){border-bottom:0}
+.path:hover{background:var(--panel-2)}
+.path .pn{font-size:.72rem;letter-spacing:.14em;color:var(--green-2);font-weight:700}
+.path h3{font-size:clamp(1.4rem,2.5vw,2rem);margin:12px 0 12px}
+.path p{color:var(--muted);margin-bottom:20px;font-size:.96rem}
+.path .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.path .tags span{font-size:.72rem;color:var(--muted);border:1px solid var(--line-2);padding:5px 11px;border-radius:100px}
+.path .arw{position:absolute;top:32px;right:32px;width:24px;height:24px;color:var(--muted-2);transition:.4s var(--ease)}
+.path:hover .arw{color:var(--green-2);transform:translate(4px,-4px)}
+
+/* video */
+.video-wrap{margin-top:44px;position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#000}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* events */
+.events-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:48px;align-items:center}
+.event-flyer{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.event-flyer img{width:100%;display:block;transition:transform 1s var(--ease)}
+.event-flyer:hover img{transform:scale(1.03)}
+.event-info .etag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--red);padding:7px 15px;border-radius:100px;font-weight:700}
+.event-info h3{font-size:clamp(2rem,4.4vw,3.2rem);margin:18px 0 6px}
+.event-info .edate{color:var(--green-2);font-weight:600;font-size:1.12rem;margin-bottom:24px}
+.event-info .elist{list-style:none;border-top:1px solid var(--line)}
+.event-info .elist li{padding:17px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:baseline}
+.event-info .elist li b{color:var(--red-2);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.event-info .ejourney{font-family:'Fraunces',serif;font-style:italic;color:var(--green-2);margin-top:22px;font-size:1.05rem}
+
+/* impact */
+.impact{background:var(--bg-2)}
+.igrid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line)}
+.ic{background:var(--bg);padding:42px 24px}
+.ic .n{font-family:'Anton',sans-serif;font-size:clamp(2.7rem,5vw,4rem);line-height:1;color:var(--white)}
+.ic .n .p{color:var(--green-2)}
+.ic .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.inote{color:var(--muted-2);font-size:.86rem;margin-top:22px;font-style:italic}
+
+/* donate */
+.donate{background:linear-gradient(160deg,#141416,#0b0b0c);border:1px solid var(--line);border-radius:22px;padding:clamp(34px,5vw,64px);position:relative;overflow:hidden}
+:root[data-theme="light"] .donate{background:linear-gradient(160deg,#ffffff,#f3efe7)}
+.donate-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;position:relative;z-index:2}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.pay .p{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--wash);transition:.35s}
+.pay .p:hover{border-color:var(--green);transform:translateY(-3px)}
+.pay .p .h{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}
+.pay .p .tag{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:.9rem}
+.pay .cash .tag{background:#00d54b} .pay .zelle .tag{background:#6d1ed4}
+.pay .p .hd{margin-top:14px;font-family:'Fraunces',serif;font-size:1.15rem}
+.pay .p small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px;word-break:break-word}
+.donate .flyer{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.donate .flyer img{width:100%}
+
+/* graduation */
+.grad{text-align:center;max-width:840px;margin:0 auto}
+.grad .roses{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:30px 0}
+.grad .roses span{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--white);border:1px solid var(--line);border-radius:100px;padding:9px 18px}
+.grad .roses span:nth-child(even){border-color:rgba(47,162,90,.4)}
+
+/* closing */
+.closing{text-align:center;max-width:940px;margin:0 auto}
+.closing .big{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.14;margin-bottom:24px}
+.closing .verbs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 20px;margin-top:26px}
+.closing .verbs span{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.05rem;color:var(--green-2);letter-spacing:.04em}
+.closing .verbs span:nth-child(odd){color:var(--red-2)}
+
+/* cta */
+.cta{background:linear-gradient(130deg,var(--red),#8f101c);color:#fff;border-radius:22px;padding:clamp(44px,6vw,80px);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 82% 120%,rgba(47,162,90,.5),transparent 60%);mix-blend-mode:screen}
+.cta h2{color:#fff;font-size:clamp(1.9rem,4.4vw,3rem);position:relative}
+.cta p{color:rgba(255,255,255,.9);max-width:52ch;margin:16px auto 0;position:relative}
+.cta .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;position:relative}
+.cta .btn-white{background:#fff;color:var(--red)}
+.cta .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.cta .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+
+/* contact */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.cgrid>div{padding:clamp(28px,4vw,48px);background:var(--panel)}
+.cgrid>div:first-child{border-right:1px solid var(--line)}
+.clist{margin-top:22px}
+.clist a{display:grid;grid-template-columns:44px 1fr;gap:15px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line-2);transition:.3s}
+.clist a:last-child{border-bottom:0}
+.clist a:hover{padding-left:6px;color:var(--green-2)}
+.clist .i2{width:44px;height:44px;border:1px solid var(--line);border-radius:100px;display:grid;place-items:center;color:var(--green-2)}
+.clist .i2 svg{width:18px;height:18px}
+.clist b{display:block;font-size:1rem} .clist small{color:var(--muted);font-size:.8rem}
+.reasons{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.reasons span{font-size:.74rem;color:var(--muted);border:1px solid var(--line-2);padding:6px 12px;border-radius:100px}
+
+/* footer */
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:66px 0 34px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:44px;margin-bottom:46px}
+.fbrand .row{display:flex;align-items:center;gap:13px}
+.fbrand .badge{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
+.fbrand .badge img{width:120%;object-fit:contain}
+.fbrand .wm{font-family:'Anton',sans-serif;font-size:1.5rem;text-transform:uppercase}
+.fbrand p{color:var(--muted);margin-top:15px;max-width:40ch;font-size:.92rem}
+.fbrand .tagline{font-family:'Fraunces',serif;font-style:italic;color:var(--green-2);margin-top:10px;font-size:.98rem}
+.fcol h4{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:16px}
+.fcol a{display:block;color:var(--muted);font-size:.92rem;padding:6px 0;transition:.25s}
+.fcol a:hover{color:var(--white);padding-left:5px}
+.socs{display:flex;gap:10px;margin-top:20px}
+.socs a{width:42px;height:42px;border:1px solid var(--line);border-radius:100px;display:grid;place-items:center;color:var(--muted);transition:.3s}
+.socs a:hover{color:var(--green-2);border-color:var(--green);transform:translateY(-3px)}
+.socs svg{width:18px;height:18px}
+.fbot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center;color:var(--muted-2);font-size:.84rem}
+.fbot .tl{font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--muted)}
+
+@media(max-width:980px){
+  .nav-links{display:none}.burger{display:flex}
+  .hero-grid,.mv,.split,.leaders,.paths,.cgrid,.donate-grid{grid-template-columns:1fr}
+  .hero-photo{max-width:460px;order:-1}
+  .cgrid>div:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .paths .path{border-right:0}
+  .paths .path:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .paths .path:last-child{border-bottom:0}
+  .figs,.igrid,.fgrid{grid-template-columns:1fr 1fr}
+  .events-grid{grid-template-columns:1fr;gap:32px}.event-flyer{max-width:440px;margin:0 auto}
+  .mo{grid-template-columns:70px 1fr;gap:18px}.mo .chips{grid-column:1/-1}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .gal .big,.gal .tall,.gal .wide,.gal .std{grid-column:span 2;grid-row:span 1;height:210px}
+}
+@media(max-width:560px){
+  .wrap,.nav-in{padding:0 20px}
+  .who,.figs,.igrid,.fgrid,.pay{grid-template-columns:1fr}
+  .hero-actions .btn,.cta .actions .btn{width:100%;justify-content:center}
+  .gal{grid-template-columns:1fr}.gal figure{grid-column:span 1!important;height:230px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.rv,.wipe{opacity:1;transform:none;clip-path:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="grain"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#home" class="brand">
+      <span class="badge"><img src="assets/logo.png" alt="Rose in Concrete logo" /></span>
+      <span class="wm">ROSE IN <b>CONCRETE</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#program">Program</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#village">The Village</a>
+      <a href="#events">Events</a>
+      <a href="#impact">Impact</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="tgl" id="tgl" aria-label="Toggle theme" title="Toggle light / dark">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a href="#donate" class="btn btn-red" style="padding:12px 22px">Donate</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#about">About</a><a href="#program">Program</a><a href="#leadership">Leadership</a>
+  <a href="#village">The Village</a><a href="#events">Events</a><a href="#impact">Impact</a><a href="#media">Media</a>
+  <a href="#donate">Donate</a><a href="#contact">Contact</a>
+  <a href="https://form.jotform.com/261308482721051" target="_blank" rel="noopener" class="btn btn-red">Refer a Youth</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"><div class="grid"></div></div>
+  <div class="wrap hero-in">
+    <div class="hero-grid">
+      <div>
+        <span class="kick rv">Credible messenger mentorship · <b>Launched 07·18·26</b></span>
+        <h1 class="display rv" data-d="1"><span class="a">Breaking</span><span class="b">Chains.</span><span class="c">Building Futures.</span></h1>
+        <p class="tag rv" data-d="2">Long live the rose that grew from concrete.</p>
+        <p class="lead rv" data-d="2">Real relationships. Real conversations. Real opportunities. We support justice-impacted individuals and vulnerable youth through mentorship, prevention, education, and access. Because young people need more than programs. They need people who believe in them.</p>
+        <div class="hero-actions rv" data-d="3">
+          <a href="https://form.jotform.com/261308482721051" target="_blank" rel="noopener" class="btn btn-red">Refer a Youth <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a href="https://form.jotform.com/261308012850043?utm_id=97758_v0_s00_e0_tv2_a1demoo4yvdty1" target="_blank" rel="noopener" class="btn btn-ghost">Become a Mentor</a>
+        </div>
+      </div>
+      <div class="hero-photo rv" data-d="2">
+        <img src="assets/hero.jpg" alt="Rose in Concrete youth on community day" />
+        <span class="cap"><span class="dot"></span>The Village · Summer 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><span class="ln"></span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true"><div class="tk">
+  <span class="u">Breaking Chains</span><span class="u">Building Futures</span><span class="u">Show Up</span><span class="u">Listen</span><span class="u">Connect</span><span class="u">Challenge</span><span class="u">Encourage</span><span class="u">Follow Through</span>
+  <span class="u">Breaking Chains</span><span class="u">Building Futures</span><span class="u">Show Up</span><span class="u">Listen</span><span class="u">Connect</span><span class="u">Challenge</span><span class="u">Encourage</span><span class="u">Follow Through</span>
+</div></div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow g">Why Rose in Concrete</span>
+      <h2>A rose can grow where it was never expected to survive. <span class="red">Our youth can too.</span></h2>
+      <p class="lead">A community-centered mentorship initiative helping youth and justice-impacted individuals recognize their potential, build resilience, and create a different path forward. Circumstances influence decisions. Opportunities shape outcomes. And the right person in your corner can change the trajectory of a life.</p>
+    </div>
+    <div class="about-photo rv">
+      <img src="assets/about.jpg" alt="Rose in Concrete youth in the community" />
+      <span class="cap"><span class="dot"></span>Out in the community</span>
+    </div>
+    <div class="mv rv" data-d="1">
+      <div class="card"><span class="k">Our Mission</span><p>To provide mentorship and support to those who are justice-impacted, and develop preventive measures for vulnerable youth, fostering resilience and growth in the face of adversity.</p></div>
+      <div class="card"><span class="k">Our Vision</span><p>A community where individuals impacted by the justice system can thrive, and vulnerable youth are guided and supported to prevent future incarceration by normalizing mental health support and building confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">What We Believe</span><h2>The village is built by those who believe.</h2></div>
+    <div class="believe-grid">
+      <div class="beliefs rv" data-d="1">
+        <div class="belief"><span class="n">01</span><span class="t">Every young person has potential.</span></div>
+        <div class="belief"><span class="n">02</span><span class="t">Prevention matters, and so do relationships.</span></div>
+        <div class="belief"><span class="n">03</span><span class="t">Representation matters.</span></div>
+        <div class="belief"><span class="n">04</span><span class="t">Mental health support should be normalized.</span></div>
+        <div class="belief"><span class="n">05</span><span class="t">Accountability and compassion can exist together.</span></div>
+        <div class="belief"><span class="n">06</span><span class="t">Lived experience can become a source of leadership.</span></div>
+        <div class="belief"><span class="n">07</span><span class="t">Your past does not have to determine your future.</span></div>
+      </div>
+      <div class="believe-photo rv" data-d="1">
+        <img src="assets/believe.jpg" alt="A Rose in Concrete mentor on the field with youth" />
+        <span class="cap"><span class="dot"></span>On the field with the village</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="section" id="program">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow g">The Mentorship Program</span>
+      <h2>A different kind of <span class="serif" style="font-style:italic;font-weight:500">mentorship.</span></h2>
+      <p class="lead">A 6-month, relationship-centered program for vulnerable and justice-impacted youth, built around credible messengers who connect through authenticity, lived experience, and trust. It isn't about talking at youth. It's about relationships strong enough for them to be heard, challenged, supported, and encouraged.</p>
+    </div>
+    <div class="figs rv" data-d="1">
+      <div class="fig"><div class="n" data-count="6">6</div><div class="l">Months</div></div>
+      <div class="fig"><div class="n" data-count="2">2</div><div class="l">Meetings / Month</div></div>
+      <div class="fig"><div class="n">1:1</div><div class="l">Mentorship</div></div>
+      <div class="fig"><div class="n">8&ndash;18</div><div class="l">Ages Served</div></div>
+    </div>
+
+    <div style="margin-top:70px" class="rv">
+      <h3 style="font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:8px">Who it's for</h3>
+      <p class="lead" style="margin-bottom:26px">A referral does not define a young person. It simply connects them to another layer of support.</p>
+      <div class="who">
+        <div class="r"><span class="b"></span><span>Youth experiencing difficult life circumstances</span></div>
+        <div class="r"><span class="b"></span><span>Youth at risk of becoming justice-impacted</span></div>
+        <div class="r"><span class="b"></span><span>Youth currently or previously justice-impacted</span></div>
+        <div class="r"><span class="b"></span><span>Youth needing additional positive adult support</span></div>
+        <div class="r"><span class="b"></span><span>Youth seeking guidance with personal and educational goals</span></div>
+        <div class="r"><span class="b"></span><span>Youth working toward career or life goals</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:80px">
+      <div class="sec-head rv"><span class="eyebrow g">The 6-Month Journey</span><h2>From concrete to <span class="grn serif" style="font-style:italic;font-weight:500">blooming.</span></h2></div>
+      <div class="jour">
+        <div class="mo rv"><div class="num">01<small>Month One</small></div><div><h3>Leadership &amp; Personal Growth</h3><p class="goal"><b>Goal —</b> Help youth understand who they are and who they can become.</p></div><div class="chips"><span>Leadership</span><span>Identity</span><span>Strengths</span><span>Decision-making</span><span>Responsibility</span></div></div>
+        <div class="mo rv"><div class="num">02<small>Month Two</small></div><div><h3>Emotional Regulation &amp; Self-Esteem</h3><p class="goal"><b>Goal —</b> Help youth understand themselves before emotions control decisions.</p></div><div class="chips"><span>Emotions</span><span>Triggers</span><span>Regulation</span><span>Self-worth</span><span>Confidence</span></div></div>
+        <div class="mo rv"><div class="num">03<small>Month Three</small></div><div><h3>Healthy Relationships &amp; Conflict Resolution</h3><p class="goal"><b>Goal —</b> Build healthier relationships and tools for handling conflict differently.</p></div><div class="chips"><span>Communication</span><span>Boundaries</span><span>Peers</span><span>Family</span><span>Respect</span></div></div>
+        <div class="mo rv"><div class="num">04<small>Month Four</small></div><div><h3>Goal Setting &amp; Accountability</h3><p class="goal"><b>Goal —</b> Move from talking about the future to creating a plan for it.</p></div><div class="chips"><span>Short-term goals</span><span>Long-term goals</span><span>Accountability</span><span>Action planning</span></div></div>
+        <div class="mo rv"><div class="num">05<small>Month Five</small></div><div><h3>Financial Literacy &amp; Positive Choices</h3><p class="goal"><b>Goal —</b> Give youth practical tools they can use toward independence.</p></div><div class="chips"><span>Money management</span><span>Saving</span><span>Budgeting</span><span>Mindset</span><span>Consequences</span></div></div>
+        <div class="mo rv"><div class="num">06<small>Month Six</small></div><div><h3>Education, Career &amp; Future Planning</h3><p class="goal"><b>Goal —</b> Help youth identify realistic opportunities and a vision beyond the program.</p></div><div class="chips"><span>Education</span><span>Employment</span><span>Entrepreneurship</span><span>Career</span><span>Resources</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBLE MESSENGERS -->
+<section class="section" id="credible" style="background:var(--bg-2)">
+  <div class="wrap split" style="align-items:center">
+    <div class="rv">
+      <span class="eyebrow">Credible Messengers</span>
+      <p class="serif" style="font-style:italic;font-weight:500;font-size:clamp(1.9rem,4vw,3rem);line-height:1.16;margin:20px 0 20px">&ldquo;I've been there. I understand. And I'm willing to walk with you.&rdquo;</p>
+      <p class="lead">This isn't about authority. It's about connection. Our mentors bring lived experience, understanding, accountability, and hope — and they complete training before they ever serve.</p>
+      <div style="margin-top:26px"><a href="https://form.jotform.com/261308012850043?utm_id=97758_v0_s00_e0_tv2_a1demoo4yvdty1" target="_blank" rel="noopener" class="btn btn-red">Become a Credible Messenger <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+    </div>
+    <div class="side-photo rv" data-d="1">
+      <img src="assets/lady.jpg" alt="A Rose in Concrete supporter holding a Be The Solution sign" />
+    </div>
+  </div>
+</section>
+
+<!-- MESSENGERS DETAIL -->
+<section class="section" id="messengers">
+  <div class="wrap split">
+    <div class="rv">
+      <span class="eyebrow">The Standard</span>
+      <h2 style="font-size:clamp(1.8rem,3.6vw,2.7rem);margin:16px 0 16px">Show up. Listen. Connect. Challenge. Encourage. Follow through.</h2>
+      <p class="lead">A credible messenger uses authentic connection, relatability, and lived experience to guide young people. Sometimes a young person needs to see someone who looks like them, understands them, and made it through. That connection opens doors that authority never could.</p>
+    </div>
+    <div class="chk rv" data-d="1">
+      <div class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Relate to their experiences</span></div>
+      <div class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Speak honestly about their own journey</span></div>
+      <div class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Build trust over time</span></div>
+      <div class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Challenge them without judging them</span></div>
+      <div class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Help them see possibilities</span></div>
+      <div class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Walk alongside them, not talk at them</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section" id="leadership" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head mid rv">
+      <span class="eyebrow g" style="justify-content:center">Leadership</span>
+      <h2>Meet the leadership.</h2>
+      <p class="lead" style="margin-inline:auto">The women leading the village — bringing lived experience, vision, and heart to every young person Rose in Concrete serves.</p>
+    </div>
+    <div class="leaders rv" data-d="1">
+      <article class="leader tilt">
+        <div class="ph"><img src="assets/pres1.jpg" alt="Chelsia Jenkins, President and Founder of Rose in Concrete" /></div>
+        <div class="meta">
+          <div class="role">President &amp; Founder</div>
+          <div class="name">Chelsia Jenkins</div>
+          <div class="sub">Rose in Concrete</div>
+        </div>
+      </article>
+      <article class="leader tilt">
+        <div class="ph"><img src="assets/pres2.jpg" alt="Savannah Clark, Vice President and Co-Founder of Rose in Concrete" /></div>
+        <div class="meta">
+          <div class="role">Vice President &amp; Co-Founder</div>
+          <div class="name">Savannah Clark</div>
+          <div class="sub">Rose in Concrete</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="media">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">Life in the Village</span><h2>See it in action.</h2></div>
+    <div class="gal rv" data-d="1">
+      <figure class="big"><img src="assets/event1.jpg" alt="Rose in Concrete community day" /><figcaption>Community Day · Breaking Chains, Building Futures</figcaption></figure>
+      <figure class="tall"><img src="assets/lady.jpg" alt="Be the Solution" style="object-position:center 30%" /><figcaption>Be the Solution</figcaption></figure>
+      <figure class="wide"><img src="assets/court.jpg" alt="Youth on community day" /><figcaption>Game Day in the Village</figcaption></figure>
+      <figure class="std"><img src="assets/hero.jpg" alt="Rose in Concrete youth" /><figcaption>The Next Generation</figcaption></figure>
+    </div>
+    <div class="video-wrap rv" data-d="1">
+      <iframe src="https://www.youtube-nocookie.com/embed/OdrgVufZJ9s?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Rose in Concrete" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- VILLAGE / PATHS -->
+<section class="section" id="village">
+  <div class="wrap">
+    <div class="sec-head mid rv"><span class="eyebrow g" style="justify-content:center">Join the Village</span><h2>There is a place for you here.</h2><p class="lead" style="margin-inline:auto">Rose in Concrete cannot do this work alone. We need people who believe in the power of community.</p></div>
+    <div class="paths rv" data-d="1">
+      <div class="path"><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="pn">01 / MENTOR</span><h3>Become a Mentor</h3><p>For adults ready to become a credible messenger and build meaningful relationships with youth.</p><a href="https://form.jotform.com/261308012850043?utm_id=97758_v0_s00_e0_tv2_a1demoo4yvdty1" target="_blank" rel="noopener" class="btn btn-white">Become a Mentor</a></div>
+      <div class="path"><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="pn">02 / REFER</span><h3>Refer a Youth</h3><p>For parents, guardians, schools, and community members who know a young person who could benefit.</p><a href="https://form.jotform.com/261308482721051" target="_blank" rel="noopener" class="btn btn-white">Refer a Youth</a></div>
+      <div class="path"><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="pn">03 / SPEAK</span><h3>Motivational Speaker</h3><p>Have a story that could inspire a young person? Speak authentically to what you've lived.</p><div class="tags"><span>Adversity</span><span>Growth</span><span>Education</span><span>Leadership</span><span>Resilience</span></div><a href="https://form.jotform.com/262185154067054" target="_blank" rel="noopener" class="btn btn-white">Become a Speaker</a></div>
+      <div class="path"><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="pn">04 / PARTNER</span><h3>Community Partner</h3><p>Organizations and businesses that can help create opportunities for youth.</p><div class="tags"><span>Employment</span><span>Internships</span><span>Housing</span><span>Sponsorships</span><span>Events</span></div><a href="https://form.jotform.com/262185154067054" target="_blank" rel="noopener" class="btn btn-white">Become a Partner</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section impact" id="impact">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow g">Our Impact</span><h2>Watch the village grow.</h2><p class="lead">Measurable outcomes as relationships take root.</p></div>
+    <div class="igrid rv" data-d="1">
+      <div class="ic"><div class="n" data-count="0" data-suffix="+">0<span class="p">+</span></div><div class="l">Youth Served</div></div>
+      <div class="ic"><div class="n" data-count="0" data-suffix="+">0<span class="p">+</span></div><div class="l">Active Mentors</div></div>
+      <div class="ic"><div class="n" data-count="0" data-suffix="+">0<span class="p">+</span></div><div class="l">Mentor &amp; Mentee Matches</div></div>
+      <div class="ic"><div class="n" data-count="0" data-suffix="+">0<span class="p">+</span></div><div class="l">Sessions Completed</div></div>
+      <div class="ic"><div class="n" data-count="0" data-suffix="+">0<span class="p">+</span></div><div class="l">Youth Goals Created</div></div>
+      <div class="ic"><div class="n" data-count="0" data-suffix="+">0<span class="p">+</span></div><div class="l">Community Partnerships</div></div>
+    </div>
+    <p class="inote">We launched 07·18·26. These numbers grow with every relationship we build.</p>
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS -->
+<section class="section" id="events">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow g">Upcoming Events</span>
+      <h2>Mark your calendar.</h2>
+      <p class="lead">What's happening in the village. Trainings, youth sessions, community events, and more.</p>
+    </div>
+    <div class="events-grid rv" data-d="1">
+      <div class="event-flyer"><img src="assets/event-mentor.jpg" alt="Meet the Mentor event flyer — Saturday, September 26, 2026" /></div>
+      <div class="event-info">
+        <span class="etag">Next Up</span>
+        <h3>Meet the Mentor</h3>
+        <div class="edate">Saturday · September 26, 2026</div>
+        <ul class="elist">
+          <li><b>Date</b><span>September 26, 2026</span></li>
+          <li><b>Details</b><span>Details have been sent to all program participants.</span></li>
+          <li><b>Please Review</b><span>Check your emails and text messages for time and location.</span></li>
+        </ul>
+        <p class="ejourney">Thank you for being part of the journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="section" id="donate">
+  <div class="wrap">
+    <div class="donate rv">
+      <div class="donate-grid">
+        <div>
+          <span class="eyebrow">Support Our Mission</span>
+          <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);margin:16px 0 14px">Your donation plants hope. <span class="grn">Your support changes lives.</span></h2>
+          <p class="lead" style="margin-bottom:8px">Rose in Concrete is a movement dedicated to empowering youth, breaking cycles, and building a stronger, healthier tomorrow. Every dollar makes a difference. Scan, donate, and make an impact.</p>
+          <div class="pay">
+            <div class="p cash"><div class="h"><span class="tag">$</span> Cash App</div><div class="hd">$RoseInConcrete979</div><small>Chelsia Jenkins</small></div>
+            <div class="p zelle"><div class="h"><span class="tag">Z</span> Zelle</div><div class="hd">roseinconcrete979@gmail.com</div><small>Scan the flyer to donate</small></div>
+          </div>
+          <p style="margin-top:16px;color:var(--muted);font-size:.9rem;font-style:italic">Thank you for sowing into the next generation. Together, we grow.</p>
+        </div>
+        <div class="flyer"><img src="assets/flyer.jpg" alt="Rose in Concrete donation flyer with Cash App and Zelle QR codes" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRADUATION -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="wrap"><div class="grad rv">
+    <span class="eyebrow g" style="justify-content:center">Concrete Rose Graduation</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.4rem);margin:16px 0">From concrete to <span class="grn serif" style="font-style:italic;font-weight:500">blooming.</span></h2>
+    <p class="lead" style="margin-inline:auto">The six-month journey ends with the Concrete Rose Graduation, a celebration of everything a young person has become.</p>
+    <div class="roses"><span>Growth</span><span>Transformation</span><span>Resilience</span><span>Recognition</span><span>Accomplishments</span><span>Future Planning</span></div>
+    <h3 style="font-size:clamp(1.4rem,3vw,2rem);margin:6px 0 14px">The program may end. The village doesn't.</h3>
+    <p class="lead" style="margin-inline:auto">Once a young person becomes part of Rose in Concrete, they remain part of the family. Once a part of the family, always in the family.</p>
+  </div></div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="get-involved">
+  <div class="wrap"><div class="cta rv">
+    <h2>Be the solution.</h2>
+    <p>Mentor. Refer. Speak. Partner. Volunteer. Sponsor. Donate. Whatever role fits you, there is a place in the village.</p>
+    <div class="actions">
+      <a href="https://form.jotform.com/261308482721051" target="_blank" rel="noopener" class="btn btn-white">Refer a Youth</a>
+      <a href="#donate" class="btn btn-ghost">Donate Now</a>
+    </div>
+  </div></div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow g">Contact</span><h2>Let's build the village together.</h2></div>
+    <div class="cgrid rv" data-d="1">
+      <div>
+        <h3 style="font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:6px">Reach out</h3>
+        <p style="color:var(--muted)">General questions, referrals, mentorship, partnerships, speaking, volunteering, or donations.</p>
+        <div class="clist">
+          <a href="tel:19792435393"><span class="i2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><b>1 (979) 243-5393</b><small>Call or Text</small></span></a>
+          <a href="mailto:roseinconcrete979@gmail.com"><span class="i2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>roseinconcrete979@gmail.com</b><small>Email</small></span></a>
+          <a href="https://instagram.com/roseinconcrete979" target="_blank" rel="noopener"><span class="i2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span><b>Roseinconcrete979</b><small>Instagram</small></span></a>
+          <a href="https://www.tiktok.com/@Rose.In.Concrete979" target="_blank" rel="noopener"><span class="i2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8.2a6.3 6.3 0 0 0 3.7 1.2V6.7a3.7 3.7 0 0 1-3.3-3h-2.6v10.9a2.3 2.3 0 1 1-2.3-2.3l.6.1V9.7a5 5 0 1 0 4.2 5V8.2z"/></svg></span><span><b>@Rose.In.Concrete979</b><small>TikTok</small></span></a>
+        </div>
+      </div>
+      <div style="background:var(--panel-2)">
+        <h3 style="font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:8px">Ready to take a step?</h3>
+        <p style="color:var(--muted)">Whatever role fits you, there's a place in the village.</p>
+        <div class="reasons"><span>Questions</span><span>Referrals</span><span>Mentorship</span><span>Partnerships</span><span>Speaking</span><span>Volunteering</span><span>Donations</span></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+          <a href="https://form.jotform.com/261308482721051" target="_blank" rel="noopener" class="btn btn-red">Refer a Youth</a>
+          <a href="https://form.jotform.com/262185154067054" target="_blank" rel="noopener" class="btn btn-green">Get Involved</a>
+        </div>
+      </div>
+    </div>
+    <div class="closing rv" data-d="1" style="margin-top:84px">
+      <p class="big">We don't just tell youth what to do. We build relationships that help them <span class="grn">see what they can become.</span></p>
+      <div class="verbs"><span>Understand</span><span>Listen</span><span>Connect</span><span>Challenge</span><span>Encourage</span><span>Walk Alongside</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="row"><span class="badge"><img src="assets/logo.png" alt="Rose in Concrete" /></span><span class="wm">ROSE IN CONCRETE</span></div>
+        <p>Breaking Chains. Building Futures. Mentorship, prevention, connection, and opportunity. Once a part of the family, always in the family.</p>
+        <p class="tagline">Long live the rose that grew from concrete.</p>
+        <div class="socs">
+          <a href="https://facebook.com/RoseInConcrete" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://instagram.com/roseinconcrete979" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/@Rose.In.Concrete979" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8.2a6.3 6.3 0 0 0 3.7 1.2V6.7a3.7 3.7 0 0 1-3.3-3h-2.6v10.9a2.3 2.3 0 1 1-2.3-2.3l.6.1V9.7a5 5 0 1 0 4.2 5V8.2z"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><h4>Explore</h4><a href="#about">About</a><a href="#program">Program</a><a href="#leadership">Leadership</a><a href="#village">The Village</a><a href="#impact">Impact</a></div>
+      <div class="fcol"><h4>Get Involved</h4><a href="https://form.jotform.com/261308482721051" target="_blank" rel="noopener">Refer a Youth</a><a href="https://form.jotform.com/261308012850043?utm_id=97758_v0_s00_e0_tv2_a1demoo4yvdty1" target="_blank" rel="noopener">Become a Mentor</a><a href="https://form.jotform.com/262185154067054" target="_blank" rel="noopener">Become a Speaker</a><a href="#donate">Donate</a><a href="#contact">Contact</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 Rose in Concrete. All Rights Reserved.</span><span class="tl">Breaking Chains. Building Futures.</span></div>
+  </div>
+</footer>
+
+<script>
+const root=document.documentElement;let theme='light';
+document.getElementById('tgl').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);});
+const nav=document.getElementById('nav');
+const prog=document.getElementById('progress');
+const navA=[...document.querySelectorAll('.nav-links a')];
+const secs=navA.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function onScrollNav(){
+  nav.classList.toggle('scrolled',scrollY>16);
+  const h=document.documentElement;
+  prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  let cur=secs.length-1;
+  for(let i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top>140){cur=i-1;break;}}
+  navA.forEach((a,i)=>a.classList.toggle('active',i===cur));
+}
+addEventListener('scroll',onScrollNav,{passive:true});onScrollNav();
+const burger=document.getElementById('burger'),mm=document.getElementById('mmenu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':'';});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');mm.classList.remove('open');document.body.style.overflow='';}));
+
+// reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -70px 0px'});
+document.querySelectorAll('.rv,.wipe').forEach(el=>io.observe(el));
+
+// count up
+const cu=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;cu.unobserve(el);
+  const t=+el.dataset.count,sfx=el.dataset.suffix||'',dur=1600,t0=performance.now();
+  (function s(n){const p=Math.min((n-t0)/dur,1),v=Math.round(t*(1-Math.pow(1-p,3)));el.innerHTML=v+(sfx?'<span class="p">'+sfx+'</span>':'');if(p<1)requestAnimationFrame(s);})(t0);});},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
+
+// parallax
+const px=[...document.querySelectorAll('[data-parallax]')];
+function onScroll(){const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const speed=+el.dataset.parallax;const off=((r.top+r.height/2)-vh/2)*speed*-1;el.style.transform='translateY('+off.toFixed(1)+'px)';});}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// tilt on leader cards
+document.querySelectorAll('.tilt').forEach(card=>{
+  card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform='translateY(-6px) rotateX('+(y*-5).toFixed(2)+'deg) rotateY('+(x*6).toFixed(2)+'deg)';});
+  card.addEventListener('pointerleave',()=>{card.style.transform='';});
+});
+</script>
+</body>
+</html>
